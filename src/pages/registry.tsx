@@ -138,7 +138,7 @@ export default function Registry() {
         <div style={{ background: '#111', padding: '60px 48px 48px' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#E63B2E', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-              Tool 03 — Hallucination Registry
+              Tool 04 — Hallucination Registry
             </span>
             <h1 style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 4vw, 56px)', color: '#F5F3EE', marginTop: '12px', lineHeight: 1.05, marginBottom: '24px' }}>
               Document the<br />phantom record.

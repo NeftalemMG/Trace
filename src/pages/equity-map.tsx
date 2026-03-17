@@ -57,7 +57,7 @@ export default function EquityMap() {
         <div style={{ background: '#E8E4DD', padding: '60px 48px 48px', borderBottom: '1.5px solid rgba(17,17,17,0.08)' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#E63B2E', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-              Tool 04 — Equity Visibility Map
+              Tool 05 — Equity Visibility Map
             </span>
             <h1 style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 4vw, 56px)', color: '#111', marginTop: '12px', lineHeight: 1.05, marginBottom: '12px' }}>
               Who gets left<br />out.
