@@ -325,7 +325,7 @@ export default function Home() {
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
           <div>
             <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '14px', fontWeight: 700, color: '#111' }}>
-              Ai<span style={{ color: '#E63B2E' }}>EO</span>
+              TR<span style={{ color: '#E63B2E' }}>ACE</span>
             </span>
             <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#888', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>University of Windsor · March 2026</p>
           </div>
