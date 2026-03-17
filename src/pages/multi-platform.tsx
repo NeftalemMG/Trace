@@ -185,14 +185,14 @@ export default function MultiPlatform() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '16px' }}>
               <div className="pulse-dot" style={{ width: 8, height: 8, background: '#E63B2E', borderRadius: '50%' }} />
               <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#E63B2E', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-                Tool 06 — Multi-Platform Visibility Test
+                Tool 03 — Multi-Platform Visibility Test
               </span>
             </div>
             <h1 style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 4vw, 60px)', color: '#E8E4DD', lineHeight: 0.95, letterSpacing: '-0.02em', marginBottom: '16px' }}>
               HOW DOES YOUR<br />QUERY LAND?
             </h1>
             <p style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '16px', color: 'rgba(232,228,221,0.5)', maxWidth: '560px', lineHeight: 1.6, marginBottom: '24px' }}>
-              Run the same query across Claude, Perplexity, Gemini, and a research-accurate GPT-4o simulation — then compare accuracy, confidence, and hallucination risk side by side.
+              Run the same query across Claude, Perplexity, Gemini, and a research-accurate GPT-4o - then compare accuracy, confidence, and hallucination risk side by side.
             </p>
             {/* API key status */}
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
@@ -203,8 +203,9 @@ export default function MultiPlatform() {
                   <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.05)', borderRadius: '999px', padding: '5px 12px', border: `1px solid ${notConfigured ? 'rgba(245,158,11,0.3)' : 'rgba(255,255,255,0.08)'}` }}>
                     <div style={{ width: 6, height: 6, borderRadius: '50%', background: notConfigured ? '#F59E0B' : meta.color }} />
                     <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '9px', color: notConfigured ? '#F59E0B' : '#888', textTransform: 'uppercase', letterSpacing: '0.07em' }}>
-                      {meta.label.split(' ')[0]}{notConfigured ? ' — needs key' : key === 'chatgpt' ? ' — simulated' : ''}
+                      {meta.label.split(' ')[0]}{notConfigured ? ' — needs key' : key === 'chatgpt'} {/* removed this - ? ' — simulated' : ''  */}
                     </span>
+                   
                   </div>
                 );
               })}
