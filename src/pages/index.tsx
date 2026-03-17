@@ -200,7 +200,7 @@ export default function Home() {
           </h1>
 
           <p style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '16px', color: 'rgba(232,228,221,0.55)', lineHeight: 1.7, maxWidth: '500px', marginBottom: '36px' }}>
-            When AI confidently misleads students about Canadian jobs, grants, and programs — the harm is real. AiEO scores, documents, and fixes AI visibility gaps.
+            Your org exists. AI doesn’t always know it. We keep score.
           </p>
 
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
