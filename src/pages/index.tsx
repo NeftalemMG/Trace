@@ -28,9 +28,10 @@ const PLATFORM_DATA = [
 const TOOLS = [
   { number: '01', title: 'Query Engine', description: 'Run student queries. Detect hallucinations. Score risk across 4 AI platforms in real time.', href: '/query-engine' },
   { number: '02', title: 'Audit Tool', description: 'Get a full AiEO Visibility Score for any Canadian organization across 6 dimensions.', href: '/audit' },
-  { number: '03', title: 'Hallucination Registry', description: 'Submit, browse, and classify documented AI hallucinations about Canadian opportunities.', href: '/registry' },
-  { number: '04', title: 'Equity Map', description: 'Explore the 54-point gap in AI visibility between Indigenous communities and major urban ecosystems.', href: '/equity-map' },
-  { number: '05', title: 'AiEO Guide', description: 'Generate schema markup, directory submissions, and content tactics to fix your AI footprint.', href: '/guide' },
+  { number: '03', title: 'Multi-Platform', description: 'Run the same query across Claude, Perplexity, Gemini, and ChatGPT simultaneously. Compare accuracy side by side.', href: '/multi-platform' },
+  { number: '04', title: 'Hallucination Registry', description: 'Submit, browse, and classify documented AI hallucinations about Canadian opportunities.', href: '/registry' },
+  { number: '05', title: 'Equity Map', description: 'Explore the 54-point gap in AI visibility between Indigenous communities and major urban ecosystems.', href: '/equity-map' },
+  { number: '06', title: 'AiEO Guide', description: 'Generate schema markup, directory submissions, and content tactics to fix your AI footprint.', href: '/guide' },
 ];
 
 function PlatformRow({ p, delay }: { p: typeof PLATFORM_DATA[0]; delay: number }) {
