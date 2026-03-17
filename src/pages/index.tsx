@@ -111,7 +111,11 @@ export default function Home() {
         {/* Background image */}
         <div style={{
           position: 'absolute', inset: 0,
-          backgroundImage: `url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1800&q=85&fit=crop')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1724676808301-b6341c710f83?w=1800&q=85&fit=crop')`,
+          // Other photos that i liked: (they from unsplash.com)
+          //photo-1773670867823-8742554140d8
+          //photo-1504625709867-b4e45e3bb9dd
+          //
           backgroundSize: 'cover',
           backgroundPosition: 'center 40%',
           backgroundRepeat: 'no-repeat',
@@ -147,7 +151,7 @@ export default function Home() {
         </div>
 
         {/* Top-left: four stat pills stacked */}
-        <div style={{
+        {/* <div style={{
           position: 'absolute', top: '96px', left: '48px',
           display: 'flex', flexDirection: 'column', gap: '8px',
           opacity: heroLoaded ? 1 : 0,
@@ -169,7 +173,7 @@ export default function Home() {
               <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '12px', color: 'rgba(232,228,221,0.65)', fontWeight: 500 }}>{s.label}</span>
             </div>
           ))}
-        </div>
+        </div> */}
 
         {/* Bottom-left: main headline */}
         <div style={{
