@@ -71,7 +71,7 @@ export default function GuidePage() {
         <div style={{ background: '#111', padding: '60px 48px 48px' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#E63B2E', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-              Tool 06 — AiEO Implementation Guide
+              Tool 06 - AiEO Implementation Guide
             </span>
             <h1 style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: 'clamp(36px, 4vw, 56px)', color: '#F5F3EE', marginTop: '12px', lineHeight: 1.05, marginBottom: '12px' }}>
               Fix your AI<br />footprint.
@@ -143,7 +143,7 @@ export default function GuidePage() {
               {!loading && !result && !error && (
                 <div style={{ background: '#E8E4DD', borderRadius: '2rem', padding: '60px', textAlign: 'center', border: '1.5px solid rgba(17,17,17,0.06)' }}>
                   <p style={{ fontFamily: '"Syne", sans-serif', fontSize: '24px', color: '#888', lineHeight: 1.4 }}>
-                    Your personalized AiEO guide will appear here — schema markup, directories, content strategy, all ready to implement.
+                    Your personalized AiEO guide will appear here - schema markup, directories, content strategy, all ready to implement.
                   </p>
                 </div>
               )}

@@ -63,7 +63,7 @@ export default function EquityMap() {
               Who gets left<br />out.
             </h1>
             <p style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '16px', color: '#666', maxWidth: '520px' }}>
-              AI visibility gaps are not random — they are structural patterns that consistently disadvantage specific communities. Select a community to see real analysis.
+              AI visibility gaps are not random - they are structural patterns that consistently disadvantage specific communities. Select a community to see real analysis.
             </p>
           </div>
         </div>
