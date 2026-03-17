@@ -225,7 +225,7 @@ export default function Home() {
             <div>
               <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '11px', color: '#E63B2E', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Platform Tools</span>
               <h2 style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: 'clamp(32px, 4vw, 52px)', color: '#111', marginTop: '10px', lineHeight: 0.95, letterSpacing: '-0.02em' }}>
-                FIVE INSTRUMENTS.<br />ONE MISSION.
+                SIX INSTRUMENTS.<br />ONE MISSION.
               </h2>
             </div>
             <p style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '14px', color: '#888', maxWidth: '300px', lineHeight: 1.65 }}>
@@ -295,11 +295,11 @@ export default function Home() {
                   <text x="175" y="215" fill="#666" fontSize="8" fontFamily="Space Mono, monospace" textAnchor="middle">CONFIDENCE %</text>
                   {/* Data points — cx = 40 + (confidence/100)*270, cy = 185 - (accuracy/100)*175 */}
                   {[
-                    { name: 'Gemini',     accuracy: 40, confidence: 95, color: '#E63B2E' },
-                    { name: 'ChatGPT',    accuracy: 55, confidence: 90, color: '#F59E0B' },
-                    { name: 'Perplexity', accuracy: 65, confidence: 75, color: '#3B82F6' },
-                    { name: 'Claude',     accuracy: 70, confidence: 45, color: '#10B981' },
-                  ].map((p) => {
+                        { name: 'Gemini',     accuracy: 40, confidence: 95, color: '#E63B2E', lx: 10,  ly: 14,  anchor: 'start' },
+                        { name: 'ChatGPT',   accuracy: 55, confidence: 88, color: '#F59E0B', lx: -12, ly: -12, anchor: 'end'   },
+                        { name: 'Perplexity',accuracy: 65, confidence: 73, color: '#3B82F6', lx: -12, ly: -12, anchor: 'end'   },
+                        { name: 'Claude',    accuracy: 70, confidence: 44, color: '#10B981', lx: 10,  ly: -12, anchor: 'start' },
+                    ].map((p) => {
                     const cx = 40 + (p.confidence / 100) * 270;
                     const cy = 185 - (p.accuracy / 100) * 175;
                     // Label above for Gemini/ChatGPT (top-right), below-left for Claude/Perplexity
