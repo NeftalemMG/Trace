@@ -182,9 +182,9 @@ export default function Home() {
         }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '20px' }}>
             <span style={{ display: 'inline-block', width: 7, height: 7, borderRadius: '50%', background: '#E63B2E', animation: 'pulse-dot 1.5s ease-in-out infinite' }} />
-            <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#E63B2E', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
+            {/* <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#E63B2E', textTransform: 'uppercase', letterSpacing: '0.12em' }}>
               AI Visibility Audit Platform · University of Windsor · 2026
-            </span>
+            </span> */}
           </div>
 
           <h1 style={{ fontFamily: '"Syne", sans-serif', fontWeight: 800, fontSize: 'clamp(52px, 6vw, 88px)', color: '#E8E4DD', lineHeight: 0.95, letterSpacing: '-0.03em', marginBottom: '6px' }}>
