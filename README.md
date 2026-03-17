@@ -55,12 +55,12 @@ Only `ANTHROPIC_API_KEY` is required. The other three unlock their respective pl
 
 All routes are in `src/pages/api/`.
 
-- `query-engine.ts` — Dual-layer Claude analysis (naive response + critical verifier)
-- `audit.ts` — 6-dimension AiEO score generation
-- `multi-platform.ts` — Parallel calls to Claude, Perplexity, Gemini, and OpenAI GPT-4o with cross-platform analysis
-- `registry.ts` — Hallucination classification (error type, risk level, harm scenario)
-- `equity-map.ts` — Community ecosystem analysis
-- `guide.ts` — Full AiEO implementation guide generation
+- `query-engine.ts` - Dual-layer Claude analysis (naive response + critical verifier)
+- `audit.ts` - 6-dimension AiEO score generation
+- `multi-platform.ts` - Parallel calls to Claude, Perplexity, Gemini, and OpenAI GPT-4o with cross-platform analysis
+- `registry.ts` - Hallucination classification (error type, risk level, harm scenario)
+- `equity-map.ts` - Community ecosystem analysis
+- `guide.ts` - Full AiEO implementation guide generation
 
 ---
 
