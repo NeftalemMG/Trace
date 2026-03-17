@@ -6,11 +6,11 @@ import Head from 'next/head';
 const TELEMETRY_MSGS = [
   '> Scanning Windsor EV ecosystem...',
   '> GPT-4o fabricated "Direct Energy EV Windsor" — GHOST DETECTED',
-  '> Gemini confidence: 95% | Accuracy: 40% — DANGER ZONE',
+  '> Gemini confidence: 95% | Accuracy: 40% - DANGER ZONE',
   '> Indigenous tech visibility score: 28/100',
   '> Hallucination pattern: fabricated_entity [CSMC, Waterloo]',
   '> Cross-referencing canada.ca database...',
-  '> Turtle Island Technology — no verifiable entry found',
+  '> Turtle Island Technology - no verifiable entry found',
   '> Black founder query: attribution error detected',
   '> Perplexity: correctly identified COVE, BFN, Animikii',
   '> Equity gap: 54pt between Indigenous vs urban orgs',
@@ -269,48 +269,45 @@ export default function Home() {
                   <span>Accuracy (Y) vs. Confidence (X)</span>
                   <span style={{ color: '#E63B2E' }}>Research 2026</span>
                 </div>
-                <svg viewBox="0 0 320 220" style={{ width: '100%' }}>
+                <svg viewBox="0 0 360 240" style={{ width: '100%' }}>
                   {/* Axis lines */}
-                  <line x1="40" y1="10" x2="40" y2="185" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
-                  <line x1="40" y1="185" x2="310" y2="185" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
-                  {/* Grid lines */}
+                  <line x1="48" y1="10" x2="48" y2="195" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
+                  <line x1="48" y1="195" x2="345" y2="195" stroke="rgba(255,255,255,0.12)" strokeWidth="1"/>
+                  {/* Grid + tick labels */}
                   {[25,50,75,100].map(v => (
                     <g key={v}>
-                      <line x1="40" y1={185 - (v/100)*175} x2="310" y2={185 - (v/100)*175} stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
-                      <text x="34" y={185 - (v/100)*175 + 4} fill="#555" fontSize="8" fontFamily="Space Mono, monospace" textAnchor="end">{v}</text>
+                      <line x1="48" y1={195 - (v/100)*175} x2="345" y2={195 - (v/100)*175} stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
+                      <text x="40" y={195 - (v/100)*175 + 4} fill="#555" fontSize="8" fontFamily="Space Mono, monospace" textAnchor="end">{v}</text>
+                      <line x1={48 + (v/100)*297} y1="10" x2={48 + (v/100)*297} y2="195" stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
+                      <text x={48 + (v/100)*297} y="210" fill="#555" fontSize="8" fontFamily="Space Mono, monospace" textAnchor="middle">{v}</text>
                     </g>
                   ))}
-                  {[25,50,75,100].map(v => (
-                    <g key={v}>
-                      <line x1={40 + (v/100)*270} y1="10" x2={40 + (v/100)*270} y2="185" stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
-                      <text x={40 + (v/100)*270} y="198" fill="#555" fontSize="8" fontFamily="Space Mono, monospace" textAnchor="middle">{v}</text>
-                    </g>
-                  ))}
-                  {/* Danger zone: high confidence (>75), low accuracy (<60) */}
-                  <rect x={40 + 0.75*270} y={185 - 0.60*175} width={0.25*270} height={0.60*175} fill="rgba(230,59,46,0.07)" stroke="rgba(230,59,46,0.2)" strokeWidth="1" strokeDasharray="3,2"/>
-                  <text x={40 + 0.77*270} y={185 - 0.60*175 + 12} fill="rgba(230,59,46,0.5)" fontSize="7.5" fontFamily="Space Mono, monospace">DANGER</text>
-                  <text x={40 + 0.77*270} y={185 - 0.60*175 + 22} fill="rgba(230,59,46,0.5)" fontSize="7.5" fontFamily="Space Mono, monospace">ZONE</text>
+                  {/* Danger zone box — top right */}
+                  <rect x={48 + 0.75*297} y={195 - 0.65*175} width={0.25*297} height={0.65*175}
+                    fill="rgba(230,59,46,0.07)" stroke="rgba(230,59,46,0.18)" strokeWidth="1" strokeDasharray="3,2"/>
+                  {/* Danger zone label — bottom of the box */}
+                  <text x={48 + 0.76*297 + 4} y={192} fill="rgba(230,59,46,0.45)" fontSize="7" fontFamily="Space Mono, monospace">DANGER ZONE</text>
                   {/* Axis labels */}
-                  <text x="8" y="100" fill="#666" fontSize="8" fontFamily="Space Mono, monospace" transform="rotate(-90 8 100)" textAnchor="middle">ACCURACY %</text>
-                  <text x="175" y="215" fill="#666" fontSize="8" fontFamily="Space Mono, monospace" textAnchor="middle">CONFIDENCE %</text>
-                  {/* Data points — cx = 40 + (confidence/100)*270, cy = 185 - (accuracy/100)*175 */}
+                  <text x="10" y="110" fill="#555" fontSize="7.5" fontFamily="Space Mono, monospace"
+                    transform="rotate(-90 10 110)" textAnchor="middle">ACCURACY %</text>
+                  <text x="196" y="228" fill="#555" fontSize="7.5" fontFamily="Space Mono, monospace" textAnchor="middle">CONFIDENCE %</text>
+                  {/* Points — labels all rendered to the LEFT of each dot */}
                   {[
-                        { name: 'Gemini',     accuracy: 40, confidence: 95, color: '#E63B2E', lx: 10,  ly: 14,  anchor: 'start' },
-                        { name: 'ChatGPT',   accuracy: 55, confidence: 88, color: '#F59E0B', lx: -12, ly: -12, anchor: 'end'   },
-                        { name: 'Perplexity',accuracy: 65, confidence: 73, color: '#3B82F6', lx: -12, ly: -12, anchor: 'end'   },
-                        { name: 'Claude',    accuracy: 70, confidence: 44, color: '#10B981', lx: 10,  ly: -12, anchor: 'start' },
-                    ].map((p) => {
-                    const cx = 40 + (p.confidence / 100) * 270;
-                    const cy = 185 - (p.accuracy / 100) * 175;
-                    // Label above for Gemini/ChatGPT (top-right), below-left for Claude/Perplexity
-                    const labelX = p.name === 'Claude' ? cx - 8 : cx + 9;
-                    const labelY = p.name === 'Gemini' ? cy - 10 : p.name === 'Claude' ? cy + 14 : cy + 4;
-                    const anchor = p.name === 'Claude' ? 'end' : 'start';
+                    { name: 'Gemini',     accuracy: 40, confidence: 95, color: '#E63B2E' },
+                    { name: 'ChatGPT',   accuracy: 56, confidence: 88, color: '#F59E0B' },
+                    { name: 'Perplexity',accuracy: 65, confidence: 73, color: '#3B82F6' },
+                    { name: 'Claude',    accuracy: 70, confidence: 44, color: '#10B981' },
+                  ].map((p) => {
+                    const cx = 48 + (p.confidence / 100) * 297;
+                    const cy = 195 - (p.accuracy / 100) * 175;
                     return (
                       <g key={p.name}>
-                        <circle cx={cx} cy={cy} r="14" fill={p.color} opacity="0.1" />
-                        <circle cx={cx} cy={cy} r="6" fill={p.color} />
-                        <text x={labelX} y={labelY} fill={p.color} fontSize="9.5" fontFamily="Space Mono, monospace" fontWeight="700" textAnchor={anchor}>{p.name}</text>
+                        <circle cx={cx} cy={cy} r="13" fill={p.color} opacity="0.12" />
+                        <circle cx={cx} cy={cy} r="5.5" fill={p.color} />
+                        <text x={cx - 10} y={cy + 4} fill={p.color} fontSize="9"
+                          fontFamily="Space Mono, monospace" fontWeight="700" textAnchor="end">
+                          {p.name}
+                        </text>
                       </g>
                     );
                   })}
