@@ -329,7 +329,7 @@ export default function Home() {
             </span>
             <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#888', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>University of Windsor · March 2026</p>
           </div>
-          <p style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '13px', color: '#888' }}>Faisal Al-Durra · Neftalem Gebremical · Utkarsh Kanade</p>
+          <p style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '13px', color: '#888' }}>Faisal Al-Durra   ·   Neftalem Gebremical   ·    Utkarsh Kanade</p>
         </div>
       </footer>
     </>
