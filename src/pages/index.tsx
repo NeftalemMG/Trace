@@ -229,7 +229,7 @@ export default function Home() {
               </h2>
             </div>
             <p style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '14px', color: '#888', maxWidth: '300px', lineHeight: 1.65 }}>
-              Every tool runs real AI calls — no simulated data, no fake scores. Everything is live.
+              Every tool runs real AI calls - no simulated data, no fake scores. Everything is live.
             </p>
           </div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px' }}>
