@@ -52,7 +52,7 @@ export default function Navbar() {
           whiteSpace: 'nowrap',
           transition: 'color 0.4s ease',
         }}>
-          Ai<span style={{ color: '#E63B2E' }}>EO</span>
+          TR<span style={{ color: '#E63B2E' }}>ACE</span>
         </span>
       </Link>
 
