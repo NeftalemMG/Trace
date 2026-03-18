@@ -167,7 +167,7 @@ export default function MultiPlatform() {
 
   return (
     <>
-      <Head><title>Multi-Platform Comparison — AiEO</title></Head>
+      <Head><title>Multi-Platform Comparison</title></Head>
       <Navbar />
 
       <div style={{ minHeight: '100vh', background: '#F5F3EE', paddingTop: '100px' }}>

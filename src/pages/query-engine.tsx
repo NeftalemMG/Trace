@@ -84,7 +84,7 @@ export default function QueryEngine() {
   return (
     <>
       <Head>
-        <title>Query Engine — AiEO</title>
+        <title>Query Engine</title>
       </Head>
       <Navbar />
 

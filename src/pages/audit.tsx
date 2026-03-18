@@ -83,7 +83,7 @@ export default function AuditTool() {
 
   return (
     <>
-      <Head><title>Audit Tool — AiEO</title></Head>
+      <Head><title>Audit Tool</title></Head>
       <Navbar />
 
       <div style={{ minHeight: '100vh', background: '#F5F3EE', paddingTop: '100px' }}>

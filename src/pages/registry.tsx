@@ -130,7 +130,7 @@ export default function Registry() {
 
   return (
     <>
-      <Head><title>Hallucination Registry — AiEO</title></Head>
+      <Head><title>Hallucination Registry</title></Head>
       <Navbar />
 
       <div style={{ minHeight: '100vh', background: '#F5F3EE', paddingTop: '100px' }}>

@@ -94,7 +94,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>AiEO — AI Visibility Audit Platform</title>
+        <title>Trace</title>
         <meta name="description" content="The AiEO Visibility Audit Tool for Canadian organizations" />
       </Head>
       <Navbar />

@@ -49,7 +49,7 @@ export default function EquityMap() {
 
   return (
     <>
-      <Head><title>Equity Map — AiEO</title></Head>
+      <Head><title>Equity Map</title></Head>
       <Navbar />
 
       <div style={{ minHeight: '100vh', background: '#F5F3EE', paddingTop: '100px' }}>
