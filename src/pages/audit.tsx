@@ -7,29 +7,44 @@ const ORG_TYPES = ['Accelerator / Incubator', 'Startup', 'Government Program', '
 const COMMUNITIES = ['General', 'Indigenous communities', 'Black founders', 'Women in tech', 'Francophone minorities', 'Newcomers / Immigrants', 'LGBTQ+', 'Rural / Remote'];
 const REGIONS = ['Windsor, ON', 'Toronto, ON', 'Waterloo, ON', 'Ottawa, ON', 'Vancouver, BC', 'Halifax, NS', 'Montreal, QC', 'Calgary, AB', 'Winnipeg, MB', 'Canada (national)'];
 
+
 function ScoreGauge({ score, grade }: { score: number; grade: string }) {
-  const angle = (score / 100) * 180 - 90;
+  const cx = 100, cy = 105, r = 72;
+  const angleRad = ((180 - (score / 100) * 180) * Math.PI) / 180;
+  const nx = cx + r * Math.cos(angleRad);
+  const ny = cy - r * Math.sin(angleRad);
   const color = score >= 70 ? '#10B981' : score >= 50 ? '#F59E0B' : '#E63B2E';
-  
+  const arcLen = Math.PI * r;
+  const fillLen = (score / 100) * arcLen;
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
-      <svg viewBox="0 0 200 110" width="200" height="110">
+      <svg viewBox="0 0 200 125" width="200" height="125">
         {/* Track */}
-        <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="rgba(17,17,17,0.08)" strokeWidth="12" strokeLinecap="round" />
+        <path d={`M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
+          fill="none" stroke="rgba(17,17,17,0.1)" strokeWidth="10" strokeLinecap="round" />
         {/* Fill */}
-        <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke={color} strokeWidth="12" strokeLinecap="round"
-          strokeDasharray={`${score * 2.51} 251`} opacity="0.3" />
-        {/* Needle */}
-        <line
-          x1="100" y1="100"
-          x2={100 + 65 * Math.cos((angle * Math.PI) / 180)}
-          y2={100 + 65 * Math.sin((angle * Math.PI) / 180)}
-          stroke={color} strokeWidth="3" strokeLinecap="round"
-          style={{ transition: 'all 1s ease' }}
+        <path d={`M ${cx - r} ${cy} A ${r} ${r} 0 0 1 ${cx + r} ${cy}`}
+          fill="none" stroke={color} strokeWidth="10" strokeLinecap="round"
+          strokeDasharray={`${fillLen} ${arcLen}`}
+          opacity="0.4"
         />
-        <circle cx="100" cy="100" r="6" fill={color} />
-        <text x="100" y="80" textAnchor="middle" fontSize="28" fontWeight="700" fill={color} fontFamily="Space Mono, monospace">{score}</text>
-        <text x="100" y="110" textAnchor="middle" fontSize="11" fill="#888" fontFamily="Space Mono, monospace">{grade}</text>
+        {/* Needle */}
+        <line x1={cx} y1={cy} x2={nx} y2={ny}
+          stroke={color} strokeWidth="2.5" strokeLinecap="round" />
+        {/* Hub */}
+        <circle cx={cx} cy={cy} r="5" fill={color} />
+        {/* Score */}
+        <text x={cx} y={cy - 20} textAnchor="middle" fontSize="30" fontWeight="700"
+          fill={color} fontFamily="Space Mono, monospace">{score}</text>
+        {/* Grade */}
+        <text x={cx} y={cy + 18} textAnchor="middle" fontSize="12"
+          fill="#888" fontFamily="Space Mono, monospace">{grade}</text>
+        {/* End labels */}
+        <text x={cx - r - 6} y={cy + 14} textAnchor="end" fontSize="9"
+          fill="#bbb" fontFamily="Space Mono, monospace">0</text>
+        <text x={cx + r + 6} y={cy + 14} textAnchor="start" fontSize="9"
+          fill="#bbb" fontFamily="Space Mono, monospace">100</text>
       </svg>
       <div style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#888', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Overall Score</div>
     </div>
