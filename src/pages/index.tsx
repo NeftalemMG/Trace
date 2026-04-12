@@ -255,31 +255,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Top-left: four stat pills stacked */}
-        {/* <div style={{
-          position: 'absolute', top: '96px', left: '48px',
-          display: 'flex', flexDirection: 'column', gap: '8px',
-          opacity: heroLoaded ? 1 : 0,
-          transition: 'opacity 0.8s ease 0.3s',
-        }}>
-          {[
-            { val: '16+', label: 'Hallucinations documented' },
-            { val: '54pt', label: 'Equity visibility gap' },
-            { val: '5',   label: 'Ghost companies fabricated' },
-            { val: '4',   label: 'AI platforms tested' },
-          ].map((s, i) => (
-            <div key={i} style={{
-              display: 'flex', alignItems: 'center', gap: '12px',
-              background: 'rgba(13,13,13,0.72)', backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(232,228,221,0.08)', borderRadius: '0.75rem',
-              padding: '10px 16px',
-            }}>
-              <span style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '28px', color: '#E63B2E', lineHeight: 1, minWidth: '44px' }}>{s.val}</span>
-              <span style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '12px', color: 'rgba(232,228,221,0.65)', fontWeight: 500 }}>{s.label}</span>
-            </div>
-          ))}
-        </div> */}
-
         {/* Bottom-left: main headline */}
         <div style={{
           position: 'relative', zIndex: 2,
@@ -422,19 +397,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      {/* <footer style={{ background: '#E8E4DD', padding: '48px', borderTop: '1px solid rgba(17,17,17,0.08)' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
-          <div>
-            <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '14px', fontWeight: 700, color: '#111' }}>
-              TR<span style={{ color: '#E63B2E' }}>ACE</span>
-            </span>
-            <p style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', color: '#888', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>University of Windsor · March 2026</p>
-          </div>
-          <p style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '13px', color: '#888' }}>Faisal Al-Durra   ·   Neftalem Gebremical   ·    Utkarsh Kanade</p>
-        </div>
-      </footer> */}
-      {/* Footer */}
       <footer style={{ background: '#E8E4DD', padding: '32px 48px', borderTop: '1px solid rgba(17,17,17,0.08)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
