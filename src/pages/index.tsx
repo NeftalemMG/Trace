@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Navbar from '../components/Navbar';
 import Head from 'next/head';
@@ -68,6 +68,110 @@ function PlatformRow({ p, delay }: { p: typeof PLATFORM_DATA[0]; delay: number }
     </div>
   );
 }
+
+
+function TeamFooter() {
+  const [open, setOpen] = React.useState(false);
+
+  const team = [
+    { name: 'Faisal Al-Durra', role: 'BSc Computer Science', url: 'https://www.linkedin.com/in/faisal-al-durra-0ab977320/' },
+    { name: 'Neftalem Gebremicael', role: 'MApC — AI Stream', url: 'https://www.linkedin.com/in/neftalem-gebremicael/' },
+    { name: 'Utkarsh Kanade', role: 'MApC — AI Stream', url: 'https://www.linkedin.com/in/utkarsh-kanade-1a02031b5/' },
+  ];
+
+  return (
+    <div style={{ position: 'relative' }}>
+      <button
+        onClick={() => setOpen(o => !o)}
+        style={{
+          background: 'transparent',
+          border: '1px solid rgba(17,17,17,0.15)',
+          borderRadius: '999px',
+          padding: '5px 16px',
+          fontFamily: '"Space Mono", monospace',
+          fontSize: '10px',
+          color: '#888',
+          textTransform: 'uppercase' as const,
+          letterSpacing: '0.1em',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '8px',
+          transition: 'all 0.2s ease',
+        }}
+        onMouseEnter={e => {
+          (e.currentTarget as HTMLElement).style.borderColor = '#E63B2E';
+          (e.currentTarget as HTMLElement).style.color = '#E63B2E';
+        }}
+        onMouseLeave={e => {
+          (e.currentTarget as HTMLElement).style.borderColor = 'rgba(17,17,17,0.15)';
+          (e.currentTarget as HTMLElement).style.color = '#888';
+        }}
+      >
+        Team
+        <span style={{
+          display: 'inline-block',
+          transform: open ? 'rotate(180deg)' : 'rotate(0deg)',
+          transition: 'transform 0.25s ease',
+          fontSize: '8px',
+        }}>▲</span>
+      </button>
+
+      <div style={{
+        position: 'absolute' as const,
+        bottom: '40px',
+        right: 0,
+        background: '#111',
+        border: '1px solid rgba(255,255,255,0.07)',
+        borderRadius: '1rem',
+        padding: open ? '16px' : '0 16px',
+        width: '260px',
+        overflow: 'hidden',
+        maxHeight: open ? '200px' : '0px',
+        opacity: open ? 1 : 0,
+        transition: 'max-height 0.35s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.25s ease, padding 0.25s ease',
+        pointerEvents: open ? 'all' as const : 'none' as const,
+      }}>
+        {team.map((member, i) => (
+          <a
+            key={i}
+            href={member.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none', display: 'block' }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '9px 0',
+                borderBottom: i < team.length - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+                cursor: 'pointer',
+                transition: 'padding-left 0.15s ease',
+              }}
+              onMouseEnter={e => { (e.currentTarget as HTMLElement).style.paddingLeft = '6px'; }}
+              onMouseLeave={e => { (e.currentTarget as HTMLElement).style.paddingLeft = '0px'; }}
+            >
+              <div>
+                <div style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '13px', fontWeight: 600, color: '#E8E4DD' }}>
+                  {member.name}
+                </div>
+                <div style={{ fontFamily: '"Space Mono", monospace', fontSize: '9px', color: '#666', textTransform: 'uppercase' as const, letterSpacing: '0.07em', marginTop: '2px' }}>
+                  {member.role}
+                </div>
+              </div>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#E63B2E" style={{ flexShrink: 0 }}>
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 
 export default function Home() {
   const [currentMsg, setCurrentMsg] = useState(0);
@@ -319,7 +423,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer style={{ background: '#E8E4DD', padding: '48px', borderTop: '1px solid rgba(17,17,17,0.08)' }}>
+      {/* <footer style={{ background: '#E8E4DD', padding: '48px', borderTop: '1px solid rgba(17,17,17,0.08)' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
           <div>
             <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '14px', fontWeight: 700, color: '#111' }}>
@@ -329,7 +433,50 @@ export default function Home() {
           </div>
           <p style={{ fontFamily: '"Space Grotesk", sans-serif', fontSize: '13px', color: '#888' }}>Faisal Al-Durra   ·   Neftalem Gebremical   ·    Utkarsh Kanade</p>
         </div>
+      </footer> */}
+      {/* Footer */}
+      <footer style={{ background: '#E8E4DD', padding: '32px 48px', borderTop: '1px solid rgba(17,17,17,0.08)' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+            <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '14px', fontWeight: 700, color: '#111' }}>
+              TR<span style={{ color: '#E63B2E' }}>ACE</span>
+            </span>
+            <a
+            href="https://github.com/NeftalemMG/Trace.git"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: 'none' }}
+            onMouseEnter={e => {
+
+                const el = e.currentTarget.querySelector('div') as HTMLElement;
+                if (el) { el.style.borderColor = '#E63B2E'; el.style.color = '#E63B2E'; }
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget.querySelector('div') as HTMLElement;
+                if (el) { el.style.borderColor = 'rgba(17,17,17,0.15)'; el.style.color = '#888'; }
+              }}
+            >
+              <div style={{
+                display: 'flex', alignItems: 'center', gap: '7px',
+                border: '1px solid rgba(17,17,17,0.15)',
+                borderRadius: '999px',
+                padding: '5px 14px',
+                transition: 'all 0.2s ease',
+                color: '#888',
+              }}>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                <span style={{ fontFamily: '"Space Mono", monospace', fontSize: '10px', letterSpacing: '0.06em', textTransform: 'uppercase' as const }}>
+                  GitHub
+                </span>
+              </div>
+            </a>
+          </div>
+          <TeamFooter />
+        </div>
       </footer>
+      
     </>
   );
 }
