@@ -56,27 +56,38 @@ async function callGemini(query: string): Promise<string> {
     return 'GEMINI_API_KEY not configured. Get a free key at aistudio.google.com/app/apikey and add it to .env.local';
   }
   try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `You are a helpful career advisor for Canadian students. Answer specifically about Canadian organizations, programs, and opportunities.\n\nQuestion: ${query}`,
-            }],
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          role: 'user',
+          parts: [{
+            text: `You are a helpful career advisor for Canadian students. Answer specifically about Canadian organizations, programs, and opportunities. Be direct and name real entities.\n\nQuestion: ${query}`,
           }],
-          generationConfig: { maxOutputTokens: 800 },
-        }),
-      }
-    );
+        }],
+        generationConfig: {
+          maxOutputTokens: 800,
+          temperature: 0.7,
+        },
+        safetySettings: [
+          { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
+          { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
+        ],
+      }),
+    });
     if (!res.ok) {
       const err = await res.text();
-      return `Gemini API error ${res.status}: ${err.slice(0, 300)}`;
+      return `Gemini API error ${res.status}: ${err.slice(0, 400)}`;
     }
     const data = await res.json();
-    return data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response from Gemini';
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+    if (!text) {
+      const reason = data.candidates?.[0]?.finishReason;
+      return `Gemini returned no text. Finish reason: ${reason || 'unknown'}`;
+    }
+    return text;
   } catch (e: any) {
     return `Gemini request failed: ${e.message}`;
   }
@@ -85,27 +96,44 @@ async function callGemini(query: string): Promise<string> {
 async function callChatGPT(query: string): Promise<string> {
   const key = process.env.OPENAI_API_KEY;
   if (!key) {
-    return 'OPENAI_API_KEY not configured. Add your OpenAI API key to .env.local as OPENAI_API_KEY=sk-...';
+    return 'OPENAI_API_KEY not configured. Add your key to .env.local as OPENAI_API_KEY=sk-...';
   }
+
+  const isOpenRouter = key.startsWith('sk-or-');
+  const endpoint = isOpenRouter
+    ? 'https://openrouter.ai/api/v1/chat/completions'
+    : 'https://api.openai.com/v1/chat/completions';
+  const model = isOpenRouter ? 'openai/gpt-4o' : 'gpt-4o';
+
   try {
-    const res = await fetch('https://api.openai.com/v1/chat/completions', {
+    const headers: Record<string, string> = {
+      'Authorization': `Bearer ${key}`,
+      'Content-Type': 'application/json',
+    };
+    if (isOpenRouter) {
+      headers['HTTP-Referer'] = 'https://trace-aieo.vercel.app';
+      headers['X-Title'] = 'Trace AiEO Platform';
+    }
+
+    const res = await fetch(endpoint, {
       method: 'POST',
-      headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+      headers,
       body: JSON.stringify({
-        model: 'gpt-4o',
+        model,
         max_tokens: 800,
         messages: [
           {
             role: 'system',
-            content: 'You are a helpful career and opportunity advisor for Canadian students. Answer the question directly and specifically, naming real organizations, programs, and opportunities you know about in Canada.',
+            content: 'You are a helpful career and opportunity advisor for Canadian students. Answer directly and specifically, naming real organizations, programs, and opportunities.',
           },
           { role: 'user', content: query },
         ],
       }),
     });
+
     if (!res.ok) {
       const err = await res.text();
-      return `ChatGPT API error ${res.status}: ${err.slice(0, 300)}`;
+      return `ChatGPT API error ${res.status}: ${err.slice(0, 400)}`;
     }
     const data = await res.json();
     return data.choices?.[0]?.message?.content || 'No response from ChatGPT';
